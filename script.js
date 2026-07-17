@@ -10,7 +10,7 @@
 
 const songs = [
   { title: "Pasti Ada Kemenangan", artist: "Toddy Official", file: "music/Pasti Ada Kemenangan.mp3" },
-  { title: "Tuhan Pasti Tolong", artist: "Toddy Official", file: "music/TUHAN PASTI TOLONG.mp3" },
+  { title: "Tuhan Pasti Tolong", artist: "Toddy Official", file: "music/Tuhan Pasti Tolong.mp3" },
   { title: "Dengarlah Doaku", artist: "Toddy Official", file: "music/Dengarlah Doaku.mp3" },
   { title: "Rancangan Mulia", artist: "Toddy Official", file: "music/Rancangan Mulia.mp3" },
   { title: "Yesaya 40", artist: "Toddy Official", file: "music/Yesaya 40.mp3" },
