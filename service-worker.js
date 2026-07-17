@@ -11,7 +11,13 @@ const ASSETS = [
   "./style.css",
   "./script.js",
   "./manifest.json",
-  "./Cover album.png"
+  "./Cover album.png",
+  "./site.webmanifest",
+"./offline.html",
+"./icons/favicon.ico",
+"./icons/apple-touch-icon.png",
+"./icons/icon-192.png",
+"./icons/icon-512.png"
 ];
 
 // Install
