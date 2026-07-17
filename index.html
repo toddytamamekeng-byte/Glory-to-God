@@ -1,104 +1,246 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLORY TO GOD | Toddy Official</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GLORY TO GOD | Toddy Official</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div class="hero">
+<div class="background"></div>
 
-    <h1>GLORY TO GOD</h1>
+<div class="overlay"></div>
 
-    <h2>Toddy Official</h2>
+<div class="container">
 
-    <p class="subtitle">
-        ✝ Music Dedicated to the Glory of God ✝
-    </p>
+<header>
 
-    <button id="enterBtn">
-        ▶ ENTER ALBUM
-    </button>
+<h1>GLORY TO GOD</h1>
+
+<p>Official Digital Album</p>
+
+<span>by Toddy Official</span>
+
+</header>
+
+<div class="player-card">
+
+<div class="cover-container">
+
+<img id="cover"
+
+src="assets/cover.jpg"
+
+alt="Album Cover"
+
+class="cover">
 
 </div>
 
-<section id="player">
+<h2 id="songTitle">
 
-    <img src="assets/cover.jpg"
-         class="cover"
-         alt="Album Cover">
+Pasti Ada Kemenangan
 
-    <h3 id="songTitle">
-        Pasti Ada Kemenangan
-    </h3>
+</h2>
+
+<p id="artist">
+
+Toddy Official
+
+</p>
 
 <audio id="audio"></audio>
 
-<div class="controls">
-    <button id="prevBtn">⏮</button>
-    <button id="playBtn">▶</button>
-    <button id="nextBtn">⏭</button>
+<div class="time">
+
+<span id="currentTime">
+
+00:00
+
+</span>
+
+<span id="duration">
+
+00:00
+
+</span>
+
 </div>
 
-    <div class="playlist">
+<input
 
-        <h2>Playlist</h2>
+type="range"
 
-        <ol>
+id="progress"
 
-            <li>Pasti Ada Kemenangan</li>
+value="0"
 
-            <li>Tuhan Pasti Tolong</li>
+min="0"
 
-            <li>Dengarlah Doaku</li>
+max="100">
 
-            <li>Rancangan Mulia</li>
+<div class="controls">
 
-            <li>Yesaya 40</li>
+<button id="prevBtn">
 
-            <li>Engkau Baik Tuhan</li>
+⏮
 
-            <li>Hidup Dalam KasihMu</li>
+</button>
 
-            <li>Cukuplah Kasih Karunia-Mu</li>
+<button id="playBtn">
 
-            <li>Rencana Tuhan</li>
+▶
 
-            <li>Demi Aku Kau Rela Tersalib</li>
+</button>
 
-            <li>Engkau Sangat Mengasihiku</li>
+<button id="nextBtn">
 
-            <li>Kau Yang Terindah</li>
+⏭
 
-            <li>Tidak Ada Yang Mustahil</li>
+</button>
 
-            <li>Sampai Jumpa Dikeabadian</li>
+</div>
 
-        </ol>
+<div class="volume">
 
-    </div>
+<span>🔉</span>
+
+<input
+
+type="range"
+
+id="volume"
+
+min="0"
+
+max="1"
+
+step="0.01"
+
+value="1">
+
+</div>
+
+</div>
+
+<section class="playlist-card">
+
+<h2>
+
+🎵 Playlist
+
+</h2>
+
+<ol id="playlist">
+
+<li>Pasti Ada Kemenangan</li>
+
+<li>Tuhan Pasti Tolong</li>
+
+<li>Dengarlah Doaku</li>
+
+<li>Rancangan Mulia</li>
+
+<li>Yesaya 40</li>
+
+<li>Engkau Baik Tuhan</li>
+
+<li>Hidup Dalam Kasih-Mu</li>
+
+<li>Cukuplah Kasih Karunia-Mu</li>
+
+<li>Rencana Tuhan</li>
+
+<li>Demi Aku Kau Rela Tersalib</li>
+
+<li>Engkau Sangat Mengasihiku</li>
+
+<li>Kau Yang Terindah</li>
+
+<li>Tidak Ada Yang Mustahil</li>
+
+<li>Sampai Jumpa Di Keabadian</li>
+
+</ol>
+
+</section>
+    <section class="album-info">
+
+<h2>✝ Tentang Album</h2>
+
+<p>
+
+Album <strong>GLORY TO GOD</strong> dipersembahkan untuk
+
+memuliakan nama Tuhan Yesus Kristus.
+
+Kiranya setiap lagu menjadi berkat,
+
+menguatkan iman,
+
+dan membawa damai bagi setiap pendengar.
+
+</p>
+
+</section>
+
+<section class="actions">
+
+<button id="shareBtn">
+
+📤 Bagikan Album
+
+</button>
+
+<a id="downloadBtn"
+
+href="#"
+
+download>
+
+⬇ Download Lagu
+
+</a>
 
 </section>
 
 <footer>
 
-    <p>
-        "Biarlah segala yang bernafas memuji TUHAN."
-    </p>
+<p>
 
-    <strong>Mazmur 150:6</strong>
+"Biarlah segala yang bernafas memuji TUHAN."
 
-    <br><br>
+</p>
 
-    © 2026 Toddy Official
+<strong>Mazmur 150:6</strong>
+
+<br><br>
+
+<p>
+
+© 2026 Toddy Official
+
+</p>
 
 </footer>
 
-<script src="script.js"></script>
+</div>
 
+<script src="script.js"></script>
+    
 </body>
 </html>
