@@ -1,0 +1,274 @@
+/* ===========================
+   GLORY TO GOD
+   Toddy Official
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:linear-gradient(180deg,#0a1830,#102a4c,#173d6b);
+
+    color:white;
+
+    text-align:center;
+
+    min-height:100vh;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    padding:70px 20px;
+
+}
+
+.hero h1{
+
+    font-size:55px;
+
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:0 0 20px gold;
+
+}
+
+.hero h2{
+
+    margin-top:15px;
+
+    font-size:28px;
+
+}
+
+.subtitle{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    color:#ddd;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button{
+
+    margin-top:40px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#FFD700;
+
+    color:#000;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 20px gold;
+
+}
+
+/* ===========================
+   PLAYER
+=========================== */
+
+#player{
+
+    width:90%;
+
+    max-width:700px;
+
+    margin:50px auto;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+/* ===========================
+   COVER
+=========================== */
+
+.cover{
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    border:6px solid gold;
+
+    object-fit:cover;
+
+    box-shadow:0 0 35px gold;
+
+    animation:spin 20s linear infinite;
+
+}
+
+/* CD BERPUTAR */
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+#songTitle{
+
+    margin-top:25px;
+
+    margin-bottom:20px;
+
+    color:#FFD700;
+
+    font-size:24px;
+
+}
+
+audio{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+/* ===========================
+   PLAYLIST
+=========================== */
+
+.playlist{
+
+    text-align:left;
+
+    margin-top:35px;
+
+}
+
+.playlist h2{
+
+    color:#FFD700;
+
+    margin-bottom:15px;
+
+}
+
+.playlist ol{
+
+    padding-left:25px;
+
+}
+
+.playlist li{
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+    transition:.3s;
+
+}
+
+.playlist li:hover{
+
+    color:#FFD700;
+
+    padding-left:10px;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    margin:60px 0;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero h2{
+
+font-size:22px;
+
+}
+
+.cover{
+
+width:200px;
+
+height:200px;
+
+}
+
+#songTitle{
+
+font-size:20px;
+
+}
+
+}
