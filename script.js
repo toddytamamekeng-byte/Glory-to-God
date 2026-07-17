@@ -707,3 +707,23 @@ playBtn.textContent="▶";
 /* ==========================================================
    END
 ========================================================== */
+// ============================================
+// Register Service Worker
+// ============================================
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./service-worker.js")
+            .then(() => {
+                console.log("✅ TODDY MUSIC PWA Ready");
+            })
+            .catch(error => {
+                console.log("Service Worker Error:", error);
+            });
+
+    });
+
+}
