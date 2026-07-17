@@ -2,47 +2,30 @@
 <html lang="id">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GLORY TO GOD | Toddy Official</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Loading -->
-
 <div id="loading">
-
-<div class="loading-content">
-
-<h1>GLORY TO GOD</h1>
-
-<p>Official Digital Album</p>
-
-<span>by Toddy Official</span>
-
+    <div class="loading-content">
+        <h1>GLORY TO GOD</h1>
+        <p>Official Digital Album</p>
+    </div>
 </div>
-
-</div>
-
-<!-- Background -->
 
 <div class="background"></div>
-
 <div class="overlay"></div>
-
-<!-- Container -->
 
 <div class="container">
 
@@ -52,19 +35,17 @@
 
 <p>Official Digital Album</p>
 
-<span>by Toddy Official</span>
+<span>By Toddy Official</span>
 
 </header>
 
-<!-- PLAYER -->
-
-<section class="player">
+<section class="hero">
 
 <div class="album-area">
 
 <div class="glow"></div>
 
-<div class="disc" id="disc"></div>
+<div id="disc" class="disc"></div>
 
 <img
 id="cover"
@@ -76,17 +57,9 @@ alt="Album Cover">
 
 <div class="player-info">
 
-<h2 id="songTitle">
+<h2 id="songTitle">Pasti Ada Kemenangan</h2>
 
-Pasti Ada Kemenangan
-
-</h2>
-
-<p id="artist">
-
-Toddy Official
-
-</p>
+<p id="artist">Toddy Official</p>
 
 <audio id="audio"></audio>
 
@@ -101,41 +74,30 @@ Toddy Official
 <input
 type="range"
 id="progress"
+min="0"
+max="100"
 value="0">
 
 <div class="controls">
 
-<button id="prevBtn">
+<button id="prevBtn">⏮</button>
 
-⏮
+<button id="playBtn">▶</button>
 
-</button>
-
-<button id="playBtn">
-
-▶
-
-</button>
-
-<button id="nextBtn">
-
-⏭
-
-</button>
+<button id="nextBtn">⏭</button>
 
 </div>
 
 <div class="volume">
 
-🔊
+<span>🔊</span>
 
 <input
 type="range"
 id="volume"
 min="0"
-max="1"
-step="0.01"
-value="1">
+max="100"
+value="100">
 
 </div>
 
@@ -149,21 +111,23 @@ value="1">
 
 </div>
 
+<div class="actions">
+
+<button id="shareBtn">📤 Bagikan</button>
+
+<a id="downloadBtn">⬇ Download</a>
+
+</div>
+
 </div>
 
 </section>
 
-<!-- Playlist -->
-
 <section class="playlist">
 
-<h2>
+<h2>🎵 Daftar Lagu</h2>
 
-🎵 Playlist
-
-</h2>
-
-<ol id="playlist">
+<ul id="playlist">
 
 <li>Pasti Ada Kemenangan</li>
 
@@ -193,72 +157,83 @@ value="1">
 
 <li>Sampai Jumpa Di Keabadian</li>
 
-</ol>
+</ul>
 
 </section>
 
-<!-- About -->
-
 <section class="about">
 
-<h2>
+<h2>📀 Informasi Album</h2>
 
-✝ Tentang Album
+<p><strong>Album:</strong> GLORY TO GOD</p>
 
-</h2>
+<p><strong>Artist:</strong> Toddy Official</p>
 
-<p>
+<p><strong>Genre:</strong> Contemporary Christian Worship</p>
 
-Album <b>GLORY TO GOD</b>
+<p><strong>Released:</strong> 2026</p>
 
-dipersembahkan untuk
+<p><strong>Catalog Number:</strong> TOD-GTG-2026-001</p>
 
-kemuliaan Tuhan Yesus Kristus.
-
-Kiranya setiap lagu menjadi berkat,
-
-menguatkan iman,
-
-membawa damai,
-
-dan memuliakan nama Tuhan.
-
-</p>
+<p><strong>Language:</strong> Indonesia</p>
 
 <blockquote>
 
-"Biarlah segala yang bernafas memuji TUHAN."
-
-<br>
-
-<b>Mazmur 150:6</b>
+"Segala kemuliaan hanya bagi Tuhan."
 
 </blockquote>
 
 </section>
 
-<!-- Action -->
+<section class="album-id">
 
-<div class="actions">
+<h2>📦 Identitas Album</h2>
 
-<button id="shareBtn">
+<div class="id-grid">
 
-📤 Bagikan Album
+<div class="qr-box">
 
-</button>
+<h3>QR Code</h3>
 
-<a
-id="downloadBtn">
-
-⬇ Download Lagu
-
-</a>
+<div id="qrcode">
+QR CODE
+</div>
 
 </div>
 
+<div class="barcode-box">
+
+<h3>Barcode</h3>
+
+<div id="barcode">
+|||| |||| ||||| ||||
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <footer>
 
+<p>
+
 © 2026 Toddy Official
+
+</p>
+
+<p>
+
+GLORY TO GOD
+
+</p>
+
+<p>
+
+Soli Deo Gloria
+
+</p>
 
 </footer>
 
