@@ -1,135 +1,395 @@
-/* GLORY TO GOD - script.js */
+/* =====================================================
+   GLORY TO GOD v2.0
+   Toddy Official
+===================================================== */
 
 const songs = [
- {title:"Pasti Ada Kemenangan",file:"music/Pasti Ada Kemenangan.mp3"},
- {title:"Tuhan Pasti Tolong",file:"music/TUHAN PASTI TOLONG.mp3"},
- {title:"Dengarlah Doaku",file:"music/Dengarlah Doaku.mp3"},
- {title:"Rancangan Mulia",file:"music/Rancangan Mulia-mc.mp3"},
- {title:"Yesaya 40",file:"music/Yesaya 40.mp3"},
- {title:"Engkau Baik Tuhan",file:"music/Engkau Baik Tuhan.mp3"},
- {title:"Hidup Dalam Kasih-Mu",file:"music/Hidup Dalam Kasih-Mu.mp3"},
- {title:"Cukuplah Kasih Karunia-Mu",file:"music/Cukuplah Kasih Karunia-Mu.mp3"},
- {title:"Rencana Tuhan",file:"music/Rencana Tuhan.mp3"},
- {title:"Demi Aku Kau Rela Tersalib",file:"music/Demi Aku Kau Rela Tersalib.mp3"},
- {title:"Engkau Sangat Mengasihiku",file:"music/Engkau Sangat Mengasihiku.mp3"},
- {title:"Kau Yang Terindah",file:"music/Kau Yang Terindah.mp3"},
- {title:"Tidak Ada Yang Mustahil",file:"music/Tidak Ada Yang Mustahil.mp3"},
- {title:"Sampai Jumpa Di Keabadian",file:"music/Sampai Jumpa Di Keabadian.mp3"}
+
+{
+title:"Pasti Ada Kemenangan",
+file:"music/Pasti Ada Kemenangan.mp3"
+},
+
+{
+title:"Tuhan Pasti Tolong",
+file:"music/TUHAN PASTI TOLONG.mp3"
+},
+
+{
+title:"Dengarlah Doaku",
+file:"music/Dengarlah Doaku.mp3"
+},
+
+{
+title:"Rancangan Mulia",
+file:"music/Rancangan Mulia.mp3"
+},
+
+{
+title:"Yesaya 40",
+file:"music/Yesaya 40.mp3"
+},
+
+{
+title:"Engkau Baik Tuhan",
+file:"music/Engkau Baik Tuhan.mp3"
+},
+
+{
+title:"Hidup Dalam Kasih-Mu",
+file:"music/Hidup Dalam Kasih-Mu.mp3"
+},
+
+{
+title:"Cukuplah Kasih Karunia-Mu",
+file:"music/Cukuplah Kasih Karunia-Mu.mp3"
+},
+
+{
+title:"Rencana Tuhan",
+file:"music/Rencana Tuhan.mp3"
+},
+
+{
+title:"Demi Aku Kau Rela Tersalib",
+file:"music/Demi Aku Kau Rela Tersalib.mp3"
+},
+
+{
+title:"Engkau Sangat Mengasihiku",
+file:"music/Engkau Sangat Mengasihiku.mp3"
+},
+
+{
+title:"Kau Yang Terindah",
+file:"music/Kau Yang Terindah.mp3"
+},
+
+{
+title:"Tidak Ada Yang Mustahil",
+file:"music/Tidak Ada Yang Mustahil.mp3"
+},
+
+{
+title:"Sampai Jumpa Di Keabadian",
+file:"music/Sampai Jumpa Di Keabadian.mp3"
+}
+
 ];
 
 const audio=document.getElementById("audio");
-const title=document.getElementById("songTitle");
 const cover=document.getElementById("cover");
+const disc=document.getElementById("disc");
+
 const playBtn=document.getElementById("playBtn");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
+
 const progress=document.getElementById("progress");
 const volume=document.getElementById("volume");
-const current=document.getElementById("currentTime");
+
+const songTitle=document.getElementById("songTitle");
+const artist=document.getElementById("artist");
+
+const currentTime=document.getElementById("currentTime");
 const duration=document.getElementById("duration");
-const share=document.getElementById("shareBtn");
-const download=document.getElementById("downloadBtn");
 
-let index=0;
+const playlist=document.querySelectorAll("#playlist li");
 
-function fmt(s){
- if(isNaN(s)) return "00:00";
- let m=Math.floor(s/60),sec=Math.floor(s%60);
-    return `${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`;
+const shareBtn=document.getElementById("shareBtn");
+const downloadBtn=document.getElementById("downloadBtn");
+
+const loading=document.getElementById("loading");
+
+let currentSong=0;
+
+function formatTime(sec){
+
+if(isNaN(sec)) return "00:00";
+
+let m=Math.floor(sec/60);
+
+let s=Math.floor(sec%60);
+
+return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+
 }
 
-function loadSong(i){
- index=i;
- audio.src=songs[i].file;
- title.textContent=songs[i].title;
+function loadSong(index){
 
- if(download){
-   download.href=songs[i].file;
-   download.download=songs[i].title+".mp3";
- }
+currentSong=index;
 
- document.querySelectorAll("#playlist li").forEach((li,n)=>{
-   li.classList.toggle("active",n===i);
- });
+audio.src=songs[index].file;
 
- audio.load();
+songTitle.textContent=songs[index].title;
+
+artist.textContent="Toddy Official";
+
+downloadBtn.href=songs[index].file;
+
+downloadBtn.download=songs[index].title+".mp3";
+
+playlist.forEach((item,i)=>{
+
+item.classList.toggle("active",i===index);
+
+});
+
+audio.load();
+
+}
+/* =====================================================
+   PLAYER CONTROL
+===================================================== */
+
+function playSong(){
+
+audio.play();
+
+playBtn.innerHTML="⏸";
+
+disc.classList.add("playing");
+
 }
 
-playBtn.onclick=()=>{
- if(audio.paused){
-   audio.play();
-   playBtn.textContent="⏸";
-   if(cover) cover.classList.add("playing");
- }else{
-   audio.pause();
-   playBtn.textContent="▶";
-   if(cover) cover.classList.remove("playing");
- }
-};
+function pauseSong(){
 
-prevBtn.onclick=()=>{
- index=(index-1+songs.length)%songs.length;
- loadSong(index);
- audio.play();
- playBtn.textContent="⏸";
- if(cover) cover.classList.add("playing");
-};
+audio.pause();
 
-nextBtn.onclick=()=>{
- index=(index+1)%songs.length;
- loadSong(index);
- audio.play();
- playBtn.textContent="⏸";
- if(cover) cover.classList.add("playing");
-};
+playBtn.innerHTML="▶";
+
+disc.classList.remove("playing");
+
+}
+
+playBtn.addEventListener("click",()=>{
+
+if(audio.paused){
+
+playSong();
+
+}else{
+
+pauseSong();
+
+}
+
+});
+
+/* =====================================================
+   NEXT & PREVIOUS
+===================================================== */
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong>=songs.length){
+
+currentSong=0;
+
+}
+
+loadSong(currentSong);
+
+playSong();
+
+}
+
+function prevSong(){
+
+currentSong--;
+
+if(currentSong<0){
+
+currentSong=songs.length-1;
+
+}
+
+loadSong(currentSong);
+
+playSong();
+
+}
+
+nextBtn.addEventListener("click",nextSong);
+
+prevBtn.addEventListener("click",prevSong);
+
+/* =====================================================
+   PLAYLIST
+===================================================== */
+
+playlist.forEach((item,index)=>{
+
+item.addEventListener("click",()=>{
+
+loadSong(index);
+
+playSong();
+
+});
+
+});
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
 
 audio.addEventListener("timeupdate",()=>{
- if(audio.duration){
-   progress.value=(audio.currentTime/audio.duration)*100;
-   current.textContent=fmt(audio.currentTime);
-   duration.textContent=fmt(audio.duration);
- }
-});
 
-progress.oninput=()=>{
- if(audio.duration){
-   audio.currentTime=(progress.value/100)*audio.duration;
- }
-};
+if(audio.duration){
 
-volume.oninput=()=>{
- audio.volume=volume.value;
-};
+progress.value=(audio.currentTime/audio.duration)*100;
 
-audio.onended=()=>{
- nextBtn.click();
-};
-
-document.querySelectorAll("#playlist li").forEach((li,i)=>{
- li.onclick=()=>{
-   loadSong(i);
-   audio.play();
-   playBtn.textContent="⏸";
-   if(cover) cover.classList.add("playing");
- };
-});
-
-if(share){
- share.onclick=async()=>{
-   if(navigator.share){
-     try{
-       await navigator.share({
-         title:"GLORY TO GOD",
-         text:"Official Digital Album - Toddy Official",
-         url:location.href
-       });
-     }catch(e){}
-   }else{
-     navigator.clipboard.writeText(location.href);
-     alert("Link album berhasil disalin.");
-   }
- };
 }
 
-loadSong(0);
+currentTime.textContent=formatTime(audio.currentTime);
+
+duration.textContent=formatTime(audio.duration);
+
+});
+
+progress.addEventListener("input",()=>{
+
+if(audio.duration){
+
+audio.currentTime=(progress.value/100)*audio.duration;
+
+}
+
+});
+
+/* =====================================================
+   VOLUME
+===================================================== */
+
 audio.volume=1;
+
+volume.value=100;
+
+volume.addEventListener("input",()=>{
+
+audio.volume=volume.value/100;
+
+});
+
+/* =====================================================
+   AUTO NEXT
+===================================================== */
+
+audio.addEventListener("ended",()=>{
+
+nextSong();
+
+});
+/* =====================================================
+   SHARE ALBUM
+===================================================== */
+
+shareBtn.addEventListener("click", async () => {
+
+const shareData = {
+title: "GLORY TO GOD",
+text: "Dengarkan album rohani GLORY TO GOD oleh Toddy Official.",
+url: window.location.href
+};
+
+if (navigator.share) {
+
+try{
+await navigator.share(shareData);
+}catch(e){}
+
+}else{
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("Link album telah disalin ke clipboard.");
+
+}
+
+});
+
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+downloadBtn.addEventListener("click",()=>{
+
+// atribut href dan download sudah diatur
+// pada fungsi loadSong()
+
+});
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+loading.style.opacity="0";
+
+loading.style.transition="opacity .8s";
+
+setTimeout(()=>{
+
+loading.style.display="none";
+
+},800);
+
+},1500);
+
+});
+
+/* =====================================================
+   KEYBOARD SHORTCUT
+===================================================== */
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.code==="Space"){
+
+e.preventDefault();
+
+if(audio.paused){
+
+playSong();
+
+}else{
+
+pauseSong();
+
+}
+
+}
+
+if(e.code==="ArrowRight"){
+
+nextSong();
+
+}
+
+if(e.code==="ArrowLeft"){
+
+prevSong();
+
+}
+
+});
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadSong(currentSong);
+
+progress.value=0;
+
+currentTime.textContent="00:00";
+
+duration.textContent="00:00";
+
+playBtn.innerHTML="▶";
