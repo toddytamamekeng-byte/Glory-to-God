@@ -1,0 +1,9 @@
+# =========================================
+# TODDY MUSIC - Robots.txt
+# Official Digital Album
+# =========================================
+
+User-agent: *
+Allow: /
+
+Sitemap: https://toddytamamekeng-byte.github.io/Glory-to-God/sitemap.xml
